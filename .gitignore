@@ -1,0 +1,8 @@
+nohup.out
+
+_site
+.sass-cache
+.jekyll-cache
+*.gem
+.bundle
+vendor/bundle

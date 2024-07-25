@@ -1,0 +1,59 @@
+# Site settings
+title: Temporal Graph Benchmark
+email: shenyang.huang@mail.mcgill.ca
+description: >
+  Documentation for the Temporal Graph Benchmark.
+lang: en-US
+encoding: utf-8
+
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: https://tgb.complexdatalab.com # the base hostname & protocol for your site
+git_address: https://github.com/ComplexData-MILA/tgb-website
+git_edit_address: ://github.com/ComplexData-MILA/tgb-website/blob/main
+
+# theme options from https://bootswatch.com/3/
+# comment out this to use default Bootstrap
+bootwatch: paper # cerulean cosmo custom cyborg darkly flatly journal lumen readable sandstone simplex slate solar spacelab superhero united yeti
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+# Plugins (previously gems:)
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .idea/
+  - .gitignore
+  - README.md
+  - vendor
+timezone: Europe/Berlin
+defaults:
+- scope:
+    path: _posts
+    type: posts
+  values:
+    layout: post
+    sectionid: blog
+
+- scope:
+    path: _docs
+    type: docs
+  values:
+    layout: docs
+    sectionid: docs
+    seo:
+      type: "WebPage"
+
+collections:
+  docs:
+    permalink: /:collection/:path/
+    output: true
+  posts:
+    permalink: /blog/:year/:month/:day/:title/
+    output: true
