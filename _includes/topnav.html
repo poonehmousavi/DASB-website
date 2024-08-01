@@ -25,7 +25,7 @@
     
                         </ul>
                     </li> -->
-                    <li {% if page.sectionid='Discrete Encoder' %} class="active" {% endif %}><a href="{{ "/docs/tokenizers/overview" |
+                    <li {% if page.sectionid='Audio Encoders' %} class="active" {% endif %}><a href="{{ "/docs/tokenizers/overview" |
                         relative_url }}">Audio Encoders</a></li>
                     <li {% if page.sectionid='Leaderboard' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
                             data-toggle="dropdown" href="#">
@@ -53,16 +53,16 @@
                             <li><a href="{{ "/docs/leader_rules/" | relative_url }}">Rules</a></li>
                         </ul> -->
                             
-                    <li {% if page.sectionid='Paper' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
+                    <li {% if page.sectionid='Papers' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
                             data-toggle="dropdown" href="#">
-                            Paper <span class="caret"></span>
+                            Papers <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="https://arxiv.org/abs/2406.14294">DASB paper (preprint)</a></li>
                             <li><a href="https://arxiv.org/abs/2406.10735">Semantic Tuning paper (Interspeech 2024)</a></li>
                         </ul>
                     </li>
-                    {% comment %} <li {% if page.sectionid=='Paper' %} class="active" {% endif %}><a
+                    {% comment %} <li {% if page.sectionid=='Papers' %} class="active" {% endif %}><a
                             href="{{ site.paper_address }}">Papers</a></li> {% endcomment %}
                     <li {% if page.sectionid=='Team' %} class="active" {% endif %}><a href="{{ "/docs/team/" |
                             relative_url }}">Team</a></li>
