@@ -39,7 +39,7 @@ The DASB team can be reached at <mousavi.pooneh@gmail.com>.
     <td>
     <div style="margin: 0 auto; width: 180px; text-align: center">
       <img src="{{ "/assets/img/portrait/cem.png" | relative_url }}" class="img-responsive">
-      <strong><a href="https://ycemsubakan.github.io/">Cem Subakan</a></strong> <br/> Mila, Université Laval,
+      <strong><a href="https://ycemsubakan.github.io/">Cem Subakan</a></strong> <br/> Mila, Université Laval
       </div>
     </td>
     <td>
