@@ -1,15 +1,15 @@
 # Site settings
-title: Temporal Graph Benchmark
-email: shenyang.huang@mail.mcgill.ca
+title: DASB
+email: mousavi.pooneh@gmail.com
 description: >
-  Documentation for the Temporal Graph Benchmark.
+  Documentation for the DASB Benchmark.
 lang: en-US
 encoding: utf-8
 
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: https://tgb.complexdatalab.com # the base hostname & protocol for your site
-git_address: https://github.com/ComplexData-MILA/tgb-website
-git_edit_address: ://github.com/ComplexData-MILA/tgb-website/blob/main
+url:  # the base hostname & protocol for your site
+git_address: 
+git_edit_address: :
 
 # theme options from https://bootswatch.com/3/
 # comment out this to use default Bootstrap
