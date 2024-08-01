@@ -33,7 +33,7 @@ The DASB team can be reached at <mousavi.pooneh@gmail.com>.
     <td>
     <div style="margin: 0 auto; width: 180px; text-align: center">
       <img src="{{ "/assets/img/portrait/arthem.png" | relative_url }}" class="img-responsive">
-      <strong><a href="https://mila.quebec/en/artem-ploujnikov">Artem Ploujnikov</a></strong> <br/> Mila, Université de Montréal
+      <strong><a href="https://www.linkedin.com/in/artem-ploujnikov-59b2434/">Artem Ploujnikov</a></strong> <br/> Mila, Université de Montréal
       </div>
     </td>
     <td>
