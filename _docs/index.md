@@ -4,7 +4,7 @@ permalink: /docs/home/
 redirect_from: /docs/index.html
 ---
 
-### Temporal Graph Benchmark for Machine Learning on Temporal Graphs 
+### DASB: Discrete Audio and Speech Benchmark
 
 
 <p>
@@ -12,67 +12,58 @@ redirect_from: /docs/index.html
 </p>
 
 
-Overview of the Temporal Graph Benchmark (TGB) pipeline:
+Overview of the Discrete Audio and Speech Benchmark (DASB) pipeline:
 - TGB includes large-scale and realistic datasets from five different domains with both dynamic link prediction and node property prediction tasks
 - TGB automatically downloads datasets and processes them into `numpy`, `PyTorch` and `PyG compatible TemporalData` formats. 
 - Novel TG models can be easily evaluated on TGB datasets via reproducible and realistic evaluation protocols. 
 - TGB provides public and online leaderboards to track recent developments in temporal graph learning domain
 
-### Links and Datasets
+### ▶️ Quickstart
 
-The project website can be found [here](https://tgb.complexdatalab.com/).
+#### Running a single task
 
-The API documentations can be found [here](https://shenyanghuang.github.io/TGB/).
+If you have specific discrete model and want to benchmark it for a specific task, you need to run the following command:
+   ```
+   python LibriSpeech/ASR/LSTM/train_[tokenzier_name].py LibriSpeech/ASR/LSTM/hparams/train_[tokenzier_name].yaml --output_folder my-output-folder --data_folder mypath/to/LibriSpeech
+   ```
 
-all dataset download links can be found at [info.py](https://github.com/shenyangHuang/TGB/blob/main/tgb/utils/info.py)
+#### Running multiple tasks
 
-TGB dataloader will also automatically download the dataset as well as the negative samples for the link property prediction datasets.
+To run all tasks, make the following changes:
 
-### Running Example Methods
+1. Edit the `run_discriminative_benchmark.sh` and `run_genarative_benchmark.sh` files and modify tokenizer related values for example the bitrate , number of codebooks, and etc.
+2. Choose a set of tasks from the provided list and, for each task, select a downstream architecture from the available options (see list below).
+3. Update the variables defined in `run_benchmark.sh` with two lists of equal size. In the `ConsideredTasks` list, specify the tasks you want to run (e.g., `'LibriSpeechASR' 'LibriSpeechASR' 'IEMOCAP'`). In the `Downstreams` list, specify the corresponding downstream architecture for each task (e.g., `'BiLSTM'`, `contextnet`, `'ecapa_tdnn'`).
 
-- For the dynamic link property prediction task, see the [`examples/linkproppred`](https://github.com/shenyangHuang/TGB/tree/main/examples/linkproppred) folder for example scripts to run TGN, DyRep and EdgeBank on TGB datasets.
-- For the dynamic node property prediction task, see the [`examples/nodeproppred`](https://github.com/shenyangHuang/TGB/tree/main/examples/nodeproppred) folder for example scripts to run TGN, DyRep and EdgeBank on TGB datasets.
-- For all other baselines, please see the [TGB_Baselines](https://github.com/fpour/TGB_Baselines) repo.
+   For example, if you set `ConsideredTasks=('LibriSpeechASR' 'LibriSpeechASR' 'IEMOCAP')` and `Downstreams=('BiLSTM', 'contextnet', 'ecapa_tdnn')`, the benchmark will be executed as follows:
+   - LibriSpeechASR with BiLSTM as the probing head
+   - LibriSpeechASR with contextnet as the probing head
+   - IEMOCAP with ecapa_tdnn as the probing head.
 
+3. Run the following command:
+   ```
+   bash run_discriminative_benchmark.sh [tokenzier_name]
+   bash run_genarative_benchmark.sh [tokenzier_name]
+   ```
+   You could also pass extra arguments as far as they are consistent  across all tasks.
 
-### pypi Installation
+   For generative task, make sure to set the `utmos_path` required for TTS evaluation.
+### 📝 ‍Incorporating Your Audio Tokenizer
 
-```
-pip install py-tgb
-```
-see our [pypi page](https://pypi.org/project/py-tgb/)
+Let's now assume you've designed a audio and speech tokenizer in PyTorch and wish to integrate it into our benchmark.
+You're in luck because we've made this step as simple as possible for you!
+Here are the steps you should follow:
 
+1. Write your model's code in a Python library saved in `benchmarks/DASB/model` (e.g., `benchmarks/MOABB/models/my_model.py`).
 
+2. Create a YAML and py file for each task you want to experiment with. Thankfully, you don't have to start from scratch. For example, if you're working with LibriSpeech/ASR/LSTM, copy `benchmarks/DASB/LibriSpeech/ASR/contextnet/hparams/train_encodec.yaml` and save it in the same folder with a different name (e.g., `train_my_model.yaml` and `train_my_model.py`).
 
-### Manually Install Dependency
-Our implementation works with python >= 3.9 and can be installed as follows
+3. Edit the relevant section of your `train_my_model.yaml` and `train_my_model.py`. Redefine the `codec:` to reference your custom model (e.g., `codec: !new:models.my_model.my_model`).
 
-1. set up virtual environment (conda should work as well)
-```
-python -m venv ~/tgb_env/
-source ~/tgb_env/bin/activate
-```
+4. Ensure you include the hyperparameters specific to your model.
 
-2. install external packages
-```
-pip install pandas==1.5.3
-pip install matplotlib==3.7.1
-pip install clint==0.5.1
-```
-
-install Pytorch and PyG dependencies (needed to run the examples)
-```
-pip install torch==2.0.0 --index-url https://download.pytorch.org/whl/cu117
-pip install torch_geometric==2.3.0
-pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.0.0+cu117.html
-```
-
-3. install local dependencies under root directory `/TGB`
-```
-pip install -e .
-```
-
-
+5. Now, follow the instructions above to run an experiments across tasks.
+**Note**: If you're not familiar with YAML, you can refer to our [HyperPyYAML tutorial](https://speechbrain.github.io/tutorial_basics.html) on the SpeechBrain website for guidance.
 
 
 <!-- 

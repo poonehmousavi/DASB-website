@@ -1,0 +1,340 @@
+---
+title: Discriminative Tasks
+permalink: /docs/leaderboard/discriminative
+---
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmarking Results for Generative Tasks</title>
+    <style>
+       h1, h2 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            /* background-color: #f5f5f5; Pinkish background */
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+    </style>
+    <h2>Low Bitrate</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="3" >Models/Tasks</th>
+                <th colspan="2">ASR-En</th>
+                <th colspan="2">ASR-multiling</th>
+                <th rowspan="2">ER</th>
+                <th rowspan="2">IC</th>
+                <th rowspan="2">KS</th>
+                <th rowspan="2">SI</th>
+                <th rowspan="2">SV</th>
+            </tr>
+            <tr>
+                <th colspan="2">WER ↓</th>
+                <th colspan="2">WER ↓</th>
+            </tr>
+            <tr>
+                <th>Clean</th>
+                <th>Other</th>
+                <th>Welsh</th>
+                <th>Basque</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>EER ↓</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Discrete HuBERT</td>
+                <td><strong>8.99</strong></td>
+                <td><strong>21.14</strong></td>
+                <td><strong>58.50</strong></td>
+                <td><strong>26.83</strong></td>
+                <td>57.20</td>
+                <td>68.70</td>
+                <td>90.54</td>
+                <td>0.90</td>
+                <td>24.99</td>
+            </tr>
+            <tr>
+                <td>Discrete WavLM</td>
+                <td>11.72</td>
+                <td>27.56</td>
+                <td>60.37</td>
+                <td>28.63</td>
+                <td><strong>59.80</strong></td>
+                <td>73.40</td>
+                <td><strong>97.94</strong></td>
+                <td>0.70</td>
+                <td>26.02</td>
+            </tr>
+            <tr>
+                <td>Discrete Wav2Vec2</td>
+                <td>12.14</td>
+                <td>28.65</td>
+                <td>66.30</td>
+                <td>32.25</td>
+                <td>57.80</td>
+                <td><strong>74.10</strong></td>
+                <td>96.16</td>
+                <td>0.40</td>
+                <td>33.53</td>
+            </tr>
+            <tr>
+                <td>EnCodec</td>
+                <td>52.37</td>
+                <td>77.04</td>
+                <td>92.01</td>
+                <td>58.20</td>
+                <td>44.70</td>
+                <td>31.50</td>
+                <td>86.00</td>
+                <td><strong>58.30</strong></td>
+                <td><strong>17.40</strong></td>
+            </tr>
+            <tr>
+                <td>DAC</td>
+                <td>63.96</td>
+                <td>83.61</td>
+                <td>94.86</td>
+                <td>66.29</td>
+                <td>49.20</td>
+                <td>22.10</td>
+                <td>81.00</td>
+                <td>45.10</td>
+                <td>20.62</td>
+            </tr>
+            <tr>
+                <td>SpeechTokenizer</td>
+                <td>19.77</td>
+                <td>43.12</td>
+                <td>76.67</td>
+                <td>47.92</td>
+                <td>49.10</td>
+                <td>57.90</td>
+                <td>95.09</td>
+                <td>47.40</td>
+                <td>20.41</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 >Medium Bitrate</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="3" >Models/Tasks</th>
+                <th colspan="2">ASR-En</th>
+                <th colspan="2">ASR-multiling</th>
+                <th rowspan="2">ER</th>
+                <th rowspan="2">IC</th>
+                <th rowspan="2">KS</th>
+                <th rowspan="2">SI</th>
+                <th rowspan="2">SV</th>
+            </tr>
+            <tr>
+                <th colspan="2">WER ↓</th>
+                <th colspan="2">WER ↓</th>
+            </tr>
+            <tr>
+                <th>Clean</th>
+                <th>Other</th>
+                <th>Welsh</th>
+                <th>Basque</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>EER ↓</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Discrete HuBERT</td>
+                <td><strong>7.91</strong></td>
+                <td><strong>18.95</strong></td>
+                <td>54.77</td>
+                <td>23.63</td>
+                <td><strong>62.10</strong></td>
+                <td>70.50</td>
+                <td>94.69</td>
+                <td>67.40</td>
+                <td>15.71</td>
+            </tr>
+            <tr>
+                <td>Discrete WavLM</td>
+                <td>8.52</td>
+                <td>20.35</td>
+                <td><strong>54.22</strong></td>
+                <td><strong>22.06</strong></td>
+                <td>57.60</td>
+                <td><strong>78.00</strong></td>
+                <td><strong>98.09</strong></td>
+                <td>80.80</td>
+                <td><strong>8.00</strong></td>
+            </tr>
+            <tr>
+                <td>Discrete Wav2Vec2</td>
+                <td>8.76</td>
+                <td>21.32</td>
+                <td>60.39</td>
+                <td>26.64</td>
+                <td>59.10</td>
+                <td>75.10</td>
+                <td>96.64</td>
+                <td>65.47</td>
+                <td>17.64</td>
+            </tr>
+            <tr>
+                <td>EnCodec</td>
+                <td>46.80</td>
+                <td>74.24</td>
+                <td>91.23</td>
+                <td>47.95</td>
+                <td>51.30</td>
+                <td>31.40</td>
+                <td>88.70</td>
+                <td><strong>91.90</strong></td>
+                <td><strong>7.81</strong></td>
+            </tr>
+            <tr>
+                <td>DAC</td>
+                <td>59.54</td>
+                <td>81.48</td>
+                <td>97.43</td>
+                <td>56.16</td>
+                <td>45.80</td>
+                <td>18.90</td>
+                <td>76.60</td>
+                <td>83.80</td>
+                <td>11.78</td>
+            </tr>
+            <tr>
+                <td>SpeechTokenizer</td>
+                <td>18.32</td>
+                <td>41.21</td>
+                <td>75.17</td>
+                <td>38.94</td>
+                <td>52.10</td>
+                <td>57.80</td>
+                <td>94.86</td>
+                <td>91.40</td>
+                <td>7.88</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 >High Bitrate</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="3" >Models/Tasks</th>
+                <th colspan="2">ASR-En</th>
+                <th colspan="2">ASR-multiling</th>
+                <th rowspan="2">ER</th>
+                <th rowspan="2">IC</th>
+                <th rowspan="2">KS</th>
+                <th rowspan="2">SI</th>
+                <th rowspan="2">SV</th>
+            </tr>
+            <tr>
+                <th colspan="2">WER ↓</th>
+                <th colspan="2">WER ↓</th>
+            </tr>
+            <tr>
+                <th>Clean</th>
+                <th>Other</th>
+                <th>Welsh</th>
+                <th>Basque</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>EER ↓</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>EnCodec</td>
+                <td><strong>45.18</strong></td>
+                <td><strong>72.56</strong></td>
+                <td><strong>93.40</strong></td>
+                <td><strong>87.65</strong></td>
+                <td>46.40</td>
+                <td><strong>19.60</strong></td>
+                <td><strong>83.60</strong></td>
+                <td><strong>92.81</strong></td>
+                <td><strong>7.18</strong></td>
+            </tr>
+            <tr>
+                <td>DAC</td>
+                <td>99.53</td>
+                <td>99.38</td>
+                <td>99.40</td>
+                <td>99.68</td>
+                <td><strong>46.00</strong></td>
+                <td>15.70</td>
+                <td>75.20</td>
+                <td>85.61</td>
+                <td>10.89</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Continuous Baseline</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="3" >Models/Tasks</th>
+                <th colspan="2">ASR-En</th>
+                <th colspan="2">ASR-multiling</th>
+                <th rowspan="2">ER</th>
+                <th rowspan="2">IC</th>
+                <th rowspan="2">KS</th>
+                <th rowspan="2">SI</th>
+                <th rowspan="2">SV</th>
+            </tr>
+            <tr>
+                <th colspan="2">WER ↓</th>
+                <th colspan="2">WER ↓</th>
+            </tr>
+            <tr>
+                <th>Clean</th>
+                <th>Other</th>
+                <th>Welsh</th>
+                <th>Basque</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>ACC ↑</th>
+                <th>EER ↓</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>SSL</td>
+                <td>3.37</td>
+                <td>7.04</td>
+                <td>41.77</td>
+                <td>14.32</td>
+                <td>63.10</td>
+                <td>86.10</td>
+                <td>99.00</td>
+                <td>99.70</td>
+                <td>2.10</td>
+            </tr>
+        </tbody>
+    </table>

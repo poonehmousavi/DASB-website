@@ -1,0 +1,129 @@
+---
+title: Benchmark Overview
+permalink: /docs/leaderboard/overview
+---
+<style>
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            font-size: 1.1em;
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</style>
+<p>Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.</p>
+<p> We publicly release DASB as a modular code repository built on the popular <a href="https://speechbrain.github.io/" target="_blank">SpeechBrain</a> toolkit and licensed under Apache 2.0.</p>
+<hr/>
+<p>
+The package helps integrate and evaluate new audio tokenizers in speech tasks such as speech recognition, speaker identification, emotion recognition, keyword spotting, intent classification, speech enhancement, separation, and text-to-speech. It offers an interface for easy model integration and testing, and a protocol for comparing different audio tokenizers.
+The leaderboard benchmark new audio tokenizers reliably. We consider different downstream architectures for each task and report the best-performing architecture.
+</p>
+
+<div>
+    <img src="{{ "/assets/img/benchmark_design.png" | relative_url }}" alt="Jekyll logo" class="img-responsive">
+</div>
+
+
+
+<h2>⚡ Datasets and Recipes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Dataset</th>
+            <th>Task</th>
+            <th>1st Architecture</th>
+            <th>2nd Architecture</th>
+            <th>Dataset Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>LibriSpeech</td>
+            <td>Speech Recognition</td>
+            <td>BiLSTM</td>
+            <td>ContextNet</td>
+            <td><a href="https://openslr.org/12">openslr.org/12</a></td>
+        </tr>
+        <tr>
+            <td>CommonVoice 17.0</td>
+            <td>Speech Recognition</td>
+            <td>BiLSTM</td>
+            <td>Linear</td>
+            <td><a href="https://commonvoice.mozilla.org/en/datasets">commonvoice.mozilla.org/en/datasets</a></td>
+        </tr>
+        <tr>
+            <td>VoxCeleb1</td>
+            <td>Speaker Verification/Identification</td>
+            <td>ECAPA-TDNN</td>
+            <td>X-Vectors</td>
+            <td><a href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html">robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html</a></td>
+        </tr>
+        <tr>
+            <td>IEMOCAP</td>
+            <td>Emotion Recognition</td>
+            <td>ECAPA-TDNN</td>
+            <td>Time-Pooling + Linear</td>
+            <td><a href="https://sail.usc.edu/iemocap/">sail.usc.edu/iemocap/</a></td>
+        </tr>
+        <tr>
+            <td>Speech Commands</td>
+            <td>Keyword Spotting</td>
+            <td>X-Vectors</td>
+            <td>ECAPA-TDNN</td>
+            <td><a href="https://www.tensorflow.org/datasets/catalog/speech_commands">tensorflow.org/datasets/catalog/speech_commands</a></td>
+        </tr>
+        <tr>
+            <td>SLURP</td>
+            <td>Intent Classification</td>
+            <td>BiLSTM + Linear</td>
+            <td>Time-Pooling + Linear</td>
+            <td><a href="https://zenodo.org/record/4274930">zenodo.org/record/4274930</a></td>
+        </tr>
+        <tr>
+            <td>VoiceBank</td>
+            <td>Speech Enhancement</td>
+            <td>Conformer</td>
+            <td>CRDNN</td>
+            <td><a href="https://datashare.ed.ac.uk/handle/10283/2791">datashare.ed.ac.uk/handle/10283/2791</a></td>
+        </tr>
+        <tr>
+            <td>Libri2Mix</td>
+            <td>Speech Separation</td>
+            <td>Conformer</td>
+            <td>CRDNN</td>
+            <td><a href="https://github.com/JorisCos/LibriMix">github.com/JorisCos/LibriMix</a></td>
+        </tr>
+        <tr>
+            <td>LJSpeech</td>
+            <td>Text-to-Speech</td>
+            <td>Shallow Transformer</td>
+            <td>Deep Transformer</td>
+            <td><a href="https://keithito.com/LJ-Speech-Dataset/">keithito.com/LJ-Speech-Dataset/</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Explore Leaderboards</h2>
+<ul>
+    <li><a href="../discriminative">Discriminative Tasks</a></li>
+    <li><a href="../generative">Generative Tasks</a></li>
+    <li><a href="../ranking">Ranking</a></li>
+</ul>

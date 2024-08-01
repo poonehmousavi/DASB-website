@@ -1,0 +1,137 @@
+---
+title: Audio Tokenizers
+permalink: /docs/tokenizers/overview
+---
+DASB includes a benchmark on 9 audio and speech datasets using 6 popular discrete audio encoders: semantic (Discrete HuBERT, Discrete WavLM, Discrete Wav2Vec2), compression (EnCodec, DAC), and hybrid (SpeechTokenizer).
+<h2>🎌 Discrete Audio Encoder</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Dataset</th>
+            <th>Repo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2406.10735">Discrete Hubert</a></td>
+            <td>LibriSpeech960</td>
+            <td><a href="https://huggingface.co/poonehmousavi/SSL_Quantization">huggingface.co/speechbrain/SSL_Quantization</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2406.10735">Discrete WavLM</a></td>
+            <td>LibriSpeech960</td>
+            <td><a href="https://huggingface.co/poonehmousavi/SSL_Quantization">huggingface.co/speechbrain/SSL_Quantization</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2406.10735">Discrete Wav2Vec2</a></td>
+            <td>LibriSpeech960</td>
+            <td><a href="https://huggingface.co/poonehmousavi/SSL_Quantization">huggingface.co/speechbrain/SSL_Quantization</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2210.13438">EnCodec</a></td>
+            <td>DNS, CommonVoice, AudioSet, FSD50K, and Jamendo</td>
+            <td><a href="https://github.com/facebookresearch/encodec">github.com/facebookresearch/encodec</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2306.06546">DAC</a></td>
+            <td>DAPS, DNS, CommonVoice, VCTK, MUSDB, and Jamendo</td>
+            <td><a href="https://github.com/descriptinc/descript-audio-codec">github.com/descriptinc/descript-audio-codec</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2308.16692">SpeechTokenizer</a></td>
+            <td>LibriSpeech960</td>
+            <td><a href="https://github.com/ZhangXInFD/SpeechTokenizer">github.com/ZhangXInFD/SpeechTokenizer</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Key Features of the Discrete Audio Encoders</h3>
+<table id="encoderTable" class="display">
+    <thead>
+        <tr>
+            <th rowspan="2">Model</th>
+            <th rowspan="2">#Params</th>
+            <th rowspan="2">Sampling Rate</th>
+            <th colspan="3">Bitrate (kbps)</th>
+            <th colspan="3">#Codebooks</th>
+        </tr>
+        <tr>
+            <th>low</th>
+            <th>medium</th>
+            <th>high</th>
+            <th>low</th>
+            <th>medium</th>
+            <th>high</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2406.10735">Discrete HuBERT</a></td>
+            <td>309.0M</td>
+            <td>16KHz</td>
+            <td>0.98</td>
+            <td>2.9</td>
+            <td>-</td>
+            <td>2</td>
+            <td>6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2406.10735">Discrete WavLM</a></td>
+            <td>309.0M</td>
+            <td>16KHz</td>
+            <td>0.98</td>
+            <td>2.9</td>
+            <td>-</td>
+            <td>2</td>
+            <td>6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2406.10735">Discrete Wav2Vec2</a></td>
+            <td>309.0M</td>
+            <td>16KHz</td>
+            <td>0.98</td>
+            <td>2.9</td>
+            <td>-</td>
+            <td>2</td>
+            <td>6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2210.13438">EnCodec</a></td>
+            <td>17.9M</td>
+            <td>24KHz</td>
+            <td>1.5</td>
+            <td>6.0</td>
+            <td>24.0</td>
+            <td>2</td>
+            <td>8</td>
+            <td>32</td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2306.06546">DAC</a></td>
+            <td>22.4M</td>
+            <td>24KHz</td>
+            <td>1.5</td>
+            <td>6.0</td>
+            <td>24.0</td>
+            <td>2</td>
+            <td>8</td>
+            <td>32</td>
+        </tr>
+        <tr>
+            <td><a href="https://arxiv.org/abs/2308.16692">SpeechTokenizer</a></td>
+            <td>85.3M</td>
+            <td>16KHz</td>
+            <td>1.0</td>
+            <td>4.0</td>
+            <td>-</td>
+            <td>2</td>
+            <td>8</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
+<p> **** #Params is computed for medium bitrate. ****</p>

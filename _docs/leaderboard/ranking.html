@@ -1,0 +1,80 @@
+---
+title: 🎌 Ranking
+permalink: /docs/leaderboard/ranking
+---
+<style>
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            font-size: 1.1em;
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+<p>W present the ranking aggregation for the considered tokenizers (medium bitrate). Each model is individually ranked for every task, and we compute the average position across all ranks.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Discriminative</th>
+            <th>Generative</th>
+            <th>Combination</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Discrete HuBERT</td>
+            <td>2.66</td>
+            <td>3.62</td>
+            <td>3.11</td>
+        </tr>
+        <tr>
+            <td>Discrete WavLM</td>
+            <td><strong>2.00</strong></td>
+            <td>2.75</td>
+            <td><strong>1.94</strong></td>
+        </tr>
+        <tr>
+            <td>Discrete Wav2Vec2</td>
+            <td>3.33</td>
+            <td><strong>2.68</strong></td>
+            <td>3.41</td>
+        </tr>
+        <tr>
+            <td>EnCodec</td>
+            <td>4.11</td>
+            <td>3.93</td>
+            <td>4.23</td>
+        </tr>
+        <tr>
+            <td>DAC</td>
+            <td>5.55</td>
+            <td>4.06</td>
+            <td>4.64</td>
+        </tr>
+        <tr>
+            <td>SpeechTokenizer</td>
+            <td>3.44</td>
+            <td>3.81</td>
+            <td>3.64</td>
+        </tr>
+    </tbody>
+</table>
+

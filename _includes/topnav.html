@@ -9,53 +9,43 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ site.baseurl }}/">
-                <span><img src="{{ "/assets/img/TGB_logo_navbar.png" | relative_url }}" alt="Logo"></span> {{ }}
+                <span><img src="{{ "/assets/img/DASB_logo_navbar.png" | relative_url }}" alt="Logo"></span> {{ }}
             </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <div class="navbar-left">
                 <ul class="nav navbar-nav">
-                    <li><a href="https://docs.tgb.complexdatalab.com/">Docs</a></li>
-                    <li {% if page.sectionid=='Datasets' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
+                    <!-- <li {% if page.sectionid=='Discrete Audio Encoder' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
                             data-toggle="dropdown" href="#">
                             Datasets <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ "/docs/dataset_overview/" | relative_url }}">Overview</a></li>
+                            <li><a href="{{ "/docs/tokenizers/overview/" | relative_url }}">Overview</a></li>
                             <li class="divider"></li>
-                            <li><a href="{{ "/docs/linkprop/" | relative_url }}">Dynamic Link Property Prediction</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ "/docs/nodeprop/" | relative_url }}">Dynamic Node Property Prediction</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ "/docs/tkg/" | relative_url }}">Temporal Knowledge Graphs</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ "/docs/thg/" | relative_url }}">Temporal Heterogeneous Graphs</a></li>
-                            <!-- <li class="divider"></li> -->
-                            <!-- <li><a href="{{ "/docs/graphprop/" | relative_url }}">Graph Property Prediction</a></li>
-                            <li class="divider"></li> -->
-                            <!-- <li><a href="{{ "/docs/lsc/" | relative_url }}">Large-Scale Challenge</a></li> -->
+    
                         </ul>
-                    </li>
-                    <li {% if page.sectionid=='Leaderboard' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
+                    </li> -->
+                    <li {% if page.sectionid='Discrete Encoder' %} class="active" {% endif %}><a href="{{ "/docs/tokenizers/overview/" |
+                        relative_url }}">Audio Encoder</a></li>
+                    <li {% if page.sectionid='Leaderboard' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
                             data-toggle="dropdown" href="#">
                             Leaderboards <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="divider"></li>
-                            <li><a href="{{ "/docs/leader_linkprop/" | relative_url }}">Dynamic Link Property Prediction</a>
+                            <li><a href="{{ "/docs/leaderboard/overview/" | relative_url  }}">Benchmark Overview</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="{{ "/docs/leader_nodeprop/" | relative_url }}">Dynamic Node Property Prediction</a>
+                            <li><a href="{{ "/docs/leaderboard/ranking/" | relative_url  }}">Ranking</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="{{ "/docs/leader_tkg/" | relative_url }}">Temporal Knowledge Graph</a>
+                            <li><a href="{{ "/docs/leaderboard/discriminative/" | relative_url  }}">Discriminative Tasks</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="{{ "/docs/leader_thg/" | relative_url }}">Temporal Heterogeneous Graph</a>
+                            <li><a href="{{ "/docs/leaderboard/generative/" | relative_url }}">Generative Tasks</a>
                             </li>
-                            <li class="divider"></li>
-                            <li><a href="{{ "/docs/leader_rules/" | relative_url }}">Rules</a></li>
-                            </li>
+
+
                         </ul>
                     </li>
                             <!-- <li><a href="{{ "/docs/leader_overview/" | relative_url }}">Overview</a></li>
@@ -63,15 +53,12 @@
                             <li><a href="{{ "/docs/leader_rules/" | relative_url }}">Rules</a></li>
                         </ul> -->
                             
-                    <li {% if page.sectionid=='Paper' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
+                    <li {% if page.sectionid='Paper' %} class="dropdown" {% endif %}><a class="dropdown-toggle"
                             data-toggle="dropdown" href="#">
                             Paper <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="https://arxiv.org/abs/2307.01026">TGB paper (NeurIPS 2023)</a></li>
-                            <li><a href="https://arxiv.org/abs/2406.09639v1">TGB 2.0 paper (preprint)</a></li>
-                            <!-- <li class="divider"></li>
-                            <li><a href="https://arxiv.org/abs/2103.09430">OGB-LSC paper</a></li>  -->
+                            <li><a href="https://arxiv.org/abs/2406.14294">DASB paper (preprint)</a></li>
                         </ul>
                     </li>
                     {% comment %} <li {% if page.sectionid=='Paper' %} class="active" {% endif %}><a
@@ -81,10 +68,7 @@
                     <li {% if page.sectionid=='Updates' %} class="active" {% endif %}><a href="{{ "/docs/update/" |
                                 relative_url }}">Updates</a></li>
                     <ul class="nav navbar-nav">
-                        <li><a href="https://github.com/shenyangHuang/TGB"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li><a href="https://complexdata-mila.github.io/TGX/">TGX</a></li>
+                        <li><a href="https://github.com/speechbrain/benchmarks/tree/main/benchmarks/DASB"><i class="fa fa-github" aria-hidden="true"></i></a></li>
                     </ul>
                     <!-- <li {% if page.sectionid=='blog' %} class="active" {% endif %}><a href="{{ site.posts.first.url | relative_url }}">Blog</a></li> -->
             </div>
