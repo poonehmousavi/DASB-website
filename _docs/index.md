@@ -6,12 +6,6 @@ redirect_from: /docs/index.html
 
 ### DASB: Discrete Audio and Speech Benchmark
 
-
-<p>
-  <a href="https://pypi.org/project/py-tgb/"><img src="https://img.shields.io/pypi/v/py-tgb.svg?color=brightgreen"></a>
-</p>
-
-
 Overview of the Discrete Audio and Speech Benchmark (DASB) pipeline:
 - DASB includes a diverse set of discrete audio encoders from all three categories: semantic(Discrete HuBERT, Discrete WavLM, Discrete Wav2Vec2), compression(EnCodec, DAC), and hybrid(SpeechTokenizer).
 - DASB supports a wide range of discriminative tasks, including speech, speaker, emotion recognition, keyword spotting, and intent classification. It also includes generative tasks, such as speech enhancement, separation, and text-to-speech.
