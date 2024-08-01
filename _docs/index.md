@@ -13,10 +13,10 @@ redirect_from: /docs/index.html
 
 
 Overview of the Discrete Audio and Speech Benchmark (DASB) pipeline:
-- TGB includes large-scale and realistic datasets from five different domains with both dynamic link prediction and node property prediction tasks
-- TGB automatically downloads datasets and processes them into `numpy`, `PyTorch` and `PyG compatible TemporalData` formats. 
-- Novel TG models can be easily evaluated on TGB datasets via reproducible and realistic evaluation protocols. 
-- TGB provides public and online leaderboards to track recent developments in temporal graph learning domain
+- DASB includes a diverse set of discrete audio encoders from all three categories: semantic(Discrete HuBERT, Discrete WavLM, Discrete Wav2Vec2), compression(EnCodec, DAC), and hybrid(SpeechTokenizer).
+- DASB supports a wide range of discriminative tasks, including speech, speaker, emotion recognition, keyword spotting, and intent classification. It also includes generative tasks, such as speech enhancement, separation, and text-to-speech.
+- For a more reliable assessment, twodifferent downstream architectures are considered for each task.
+- Novel audio tokenizer can be easily evaluated on DASB benchmark via reproducible and realistic evaluation protocols. 
 
 ### ▶️ Quickstart
 
