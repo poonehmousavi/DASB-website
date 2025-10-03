@@ -29,27 +29,28 @@ permalink: /docs/leaderboard/overview
         }
     </style>
 </style>
-<p>Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.</p>
 <p> We publicly release DASB as a modular code repository built on the popular <a href="https://speechbrain.github.io/" target="_blank">SpeechBrain</a> toolkit and licensed under Apache 2.0.</p>
 <hr/>
 <p>
-The package helps integrate and evaluate new audio tokenizers in speech tasks such as speech recognition, speaker identification, emotion recognition, keyword spotting, intent classification, speech enhancement, separation, and text-to-speech. It offers an interface for easy model integration and testing, and a protocol for comparing different audio tokenizers.
-The leaderboard benchmarks new audio tokenizers reliably. We consider different downstream architectures for each task and report the best-performing architecture.
+The package helps integrate and evaluate new audio tokenizers in speech, music and general audio domain.
 </p>
+<P></P>
+We consider a wide range of tasks, including speech recognition, speaker verification, emotion recognition, keyword spotting, intent classification, sound event classification, music genre classification, speech enhancement, speech separation, text-to-speech, and music and general  sound source separation.
+</p>
+<p>For reliable evaluation, we apply extensive hyperparameter tuning, test two
+    downstream architectures per task, and average results over multiple seeds.</p>
 
 <div>
-    <img src="{{ "/assets/img/benchmark_design.png" | relative_url }}" alt="Jekyll logo" class="img-responsive">
+    <img src="{{ "/assets/img/benchmark_design.svg" | relative_url }}" alt="Jekyll logo" class="img-responsive">
 </div>
 
 
-
-<h2>⚡ Datasets and Recipes</h2>
+<h2>🧾 Datasets and Recipes</h2>
 <table>
     <thead>
         <tr>
             <th>Dataset</th>
             <th>Task</th>
-            <th>Abbr.</th>
             <th>1st Architecture</th>
             <th>2nd Architecture</th>
             <th>Dataset Link</th>
@@ -59,31 +60,27 @@ The leaderboard benchmarks new audio tokenizers reliably. We consider different 
         <tr>
             <td>LibriSpeech</td>
             <td>Speech Recognition</td>
-            <td>ASR</td>
             <td>BiLSTM</td>
-            <td>ContextNet</td>
+            <td>Branchformer</td>
             <td><a href="https://openslr.org/12">openslr.org/12</a></td>
         </tr>
         <tr>
             <td>CommonVoice 17.0</td>
             <td>Speech Recognition</td>
-            <td>ASR-multiling</td>
             <td>BiLSTM</td>
-            <td>Linear</td>
+            <td>Branchformer</td>
             <td><a href="https://commonvoice.mozilla.org/en/datasets">commonvoice.mozilla.org/en/datasets</a></td>
         </tr>
         <tr>
             <td>VoxCeleb1</td>
             <td>Speaker Verification/Identification</td>
-            <td>SI-SV</td>
             <td>ECAPA-TDNN</td>
-            <td>X-Vectors</td>
+            <td>BiLSTM + Linear</td>
             <td><a href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html">robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html</a></td>
         </tr>
         <tr>
             <td>IEMOCAP</td>
             <td>Emotion Recognition</td>
-            <td>ER</td>
             <td>ECAPA-TDNN</td>
             <td>Time-Pooling + Linear</td>
             <td><a href="https://sail.usc.edu/iemocap/">sail.usc.edu/iemocap/</a></td>
@@ -91,15 +88,13 @@ The leaderboard benchmarks new audio tokenizers reliably. We consider different 
         <tr>
             <td>Speech Commands</td>
             <td>Keyword Spotting</td>
-            <td>KS</td>
-            <td>X-Vectors</td>
             <td>ECAPA-TDNN</td>
+            <td>X-Vectors</td>
             <td><a href="https://www.tensorflow.org/datasets/catalog/speech_commands">tensorflow.org/datasets/catalog/speech_commands</a></td>
         </tr>
         <tr>
             <td>SLURP</td>
             <td>Intent Classification</td>
-            <td>IC</td>
             <td>BiLSTM + Linear</td>
             <td>Time-Pooling + Linear</td>
             <td><a href="https://zenodo.org/record/4274930">zenodo.org/record/4274930</a></td>
@@ -107,7 +102,6 @@ The leaderboard benchmarks new audio tokenizers reliably. We consider different 
         <tr>
             <td>VoiceBank</td>
             <td>Speech Enhancement</td>
-            <td>SE</td>
             <td>Conformer</td>
             <td>CRDNN</td>
             <td><a href="https://datashare.ed.ac.uk/handle/10283/2791">datashare.ed.ac.uk/handle/10283/2791</a></td>
@@ -115,26 +109,57 @@ The leaderboard benchmarks new audio tokenizers reliably. We consider different 
         <tr>
             <td>Libri2Mix</td>
             <td>Speech Separation</td>
-            <td>SS</td>
             <td>Conformer</td>
             <td>CRDNN</td>
             <td><a href="https://github.com/JorisCos/LibriMix">github.com/JorisCos/LibriMix</a></td>
         </tr>
         <tr>
-            <td>LJSpeech</td>
+            <td>LibriTTS / LJSpeech</td>
             <td>Text-to-Speech</td>
-            <td>TTS</td>
+            <td>VALL-E</td>
             <td>Shallow Transformer</td>
-            <td>Deep Transformer</td>
-            <td><a href="https://keithito.com/LJ-Speech-Dataset/">keithito.com/LJ-Speech-Dataset/</a></td>
+            <td>
+                <a href="https://openslr.org/60/">LibriTTS: openslr.org/60</a> /
+                <a href="https://keithito.com/LJ-Speech-Dataset/">LJSpeech: keithito.com/LJ-Speech-Dataset/</a>
+            </td>
+        </tr>
+        <tr>
+            <td>FUSS</td>
+            <td>Audio Source Separation</td>
+            <td>Conformer</td>
+            <td>CRDNN</td>
+            <td><a href="https://github.com/google-research/sound-separation/blob/master/datasets/fuss/">github.com/google-research/sound-separation/blob/master/datasets/fuss/</a></td>
+        </tr>
+        <tr>
+            <td>MUSDB</td>
+            <td>Music Source Separation</td>
+            <td>Conformer</td>
+            <td>CRDNN</td>
+            <td><a href="https://sigsep.github.io/datasets/musdb.html">sigsep.github.io/datasets/musdb.html</a></td>
+        </tr>
+        <tr>
+            <td>ESC50</td>
+            <td>Sound Classification</td>
+            <td>ECAPA-TDNN</td>
+            <td>Linear</td>
+            <td><a href="https://github.com/karolpiczak/ESC-50">github.com/karolpiczak/ESC-50</a></td>
+        </tr>
+        <tr>
+            <td>GTZAN</td>
+            <td>Music Genre Classification</td>
+            <td>ECAPA-TDNN</td>
+            <td>Linear</td>
+            <td><a href="https://huggingface.co/datasets/marsyas/gtzan">huggingface.co/datasets/marsyas/gtzan</a></td>
         </tr>
     </tbody>
 </table>
 
+
 <h2>Explore Leaderboards</h2>
 <ul>
     <!-- <li><a href="../discriminative">Discriminative Tasks</a></li> -->
-    <li><a href="{{"/docs/leaderboard/discriminative" | relative_url  }}">Discriminative Tasks</a></li>
-    <li><a href="{{"/docs/leaderboard/generative" | relative_url  }}">Generative Tasks</a></li>
+    <li><a href="{{"/docs/leaderboard/discriminative" | relative_url  }}">Speech Discriminative Tasks</a></li>
+    <li><a href="{{"/docs/leaderboard/generative" | relative_url  }}">Speech Generative Tasks</a></li>
+    <li><a href="{{"/docs/leaderboard/musicaudio" | relative_url  }}">Music and Sound Tasks</a></li>
     <li><a href="{{"/docs/leaderboard/ranking" | relative_url  }}">Ranking</a></li>
 </ul>

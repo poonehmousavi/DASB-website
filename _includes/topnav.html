@@ -39,10 +39,13 @@
                             <li><a href="{{ "/docs/leaderboard/ranking" | relative_url  }}">Ranking</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="{{ "/docs/leaderboard/discriminative" | relative_url  }}">Discriminative Tasks</a>
+                            <li><a href="{{ "/docs/leaderboard/discriminative" | relative_url  }}">Speech Discriminative Tasks</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="{{ "/docs/leaderboard/generative" | relative_url }}">Generative Tasks</a>
+                            <li><a href="{{ "/docs/leaderboard/generative" | relative_url }}">Speech Generative Tasks</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="{{ "/docs/leaderboard/musicaudio" | relative_url }}">Music & Sound Tasks</a>
                             </li>
 
 
@@ -59,6 +62,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="https://arxiv.org/abs/2406.14294">DASB paper (preprint)</a></li>
+                            <li><a href="https://arxiv.org/abs/2506.10274">Discrete Audio Tokens: More Than a Survey! (TML 2025)</a></li>
                             <li><a href="https://arxiv.org/abs/2406.10735">Semantic Tuning paper (Interspeech 2024)</a></li>
                         </ul>
                     </li>
@@ -69,7 +73,7 @@
                     <li {% if page.sectionid=='Updates' %} class="active" {% endif %}><a href="{{ "/docs/update/" |
                                 relative_url }}">Updates</a></li>
                     <ul class="nav navbar-nav">
-                        <li><a href="https://github.com/speechbrain/benchmarks/tree/main/benchmarks/DASB"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/speechbrain/benchmarks/tree/DASB/benchmarks/DASB"><i class="fa fa-github" aria-hidden="true"></i></a></li>
                     </ul>
                     <!-- <li {% if page.sectionid=='blog' %} class="active" {% endif %}><a href="{{ site.posts.first.url | relative_url }}">Blog</a></li> -->
             </div>

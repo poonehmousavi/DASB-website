@@ -28,53 +28,81 @@ permalink: /docs/leaderboard/ranking
             text-decoration: underline;
         }
     </style>
-<p>We present the ranking aggregation for the considered tokenizers (medium bitrate) sorted by "Combination" column. Each model is individually ranked for every task, and we compute the average position across all ranks.</p>
-<table>
+<h2>Qualitative Comparison</h2>
+<table style="width:100%; border-collapse: collapse; font-size: 16px; text-align: center;">
     <thead>
-        <tr>
-            <th>Model</th>
-            <th>Discriminative</th>
-            <th>Generative</th>
-            <th>Combination</th>
-        </tr>
+      <tr style="background-color: #f2f2f2;">
+        <th style="border: 1px solid #ddd; padding: 8px;">Tokenizer Type</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Reconstruction</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Downstream</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Low-Resource Robustness</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Model Scalability</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Convergence Speed</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Efficiency</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Discrete WavLM</td>
-            <td><strong>2.00</strong></td>
-            <td>2.75</td>
-            <td><strong>1.94</strong></td>
-        </tr>
-        <tr>
-            <td>Discrete HuBERT</td>
-            <td>2.66</td>
-            <td>3.62</td>
-            <td>3.11</td>
-        </tr>
-        <tr>
-            <td>SpeechTokenizer</td>
-            <td>3.44</td>
-            <td>3.81</td>
-            <td>3.64</td>
-        </tr>
-        <tr>
-            <td>Discrete Wav2Vec2</td>
-            <td>3.33</td>
-            <td><strong>2.68</strong></td>
-            <td>3.41</td>
-        </tr>
-        <tr>
-            <td>EnCodec</td>
-            <td>4.11</td>
-            <td>3.93</td>
-            <td>4.23</td>
-        </tr>
-        <tr>
-            <td>DAC</td>
-            <td>5.55</td>
-            <td>4.06</td>
-            <td>4.64</td>
-        </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; font-weight:bold;">Acoustic</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:green;">High</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:red;">Low</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:red;">❌</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">Requires large models</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:red;">Slow</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:green;">High</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; font-weight:bold;">Semantic</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:red;">Low</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:green;">High</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:green;">✅</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">Can work with smaller models</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:green;">Fast</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:red;">Low</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; font-weight:bold;">Hybrid</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:orange;">Moderate</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:orange;">Moderate</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:red;">❌</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">Depends on data</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:orange;">Moderate</td>
+        <td style="border: 1px solid #ddd; padding: 8px; color:orange;">Moderate</td>
+      </tr>
     </tbody>
-</table>
+  </table>
+  
+  <h2 style="margin-top:2.2rem;">Rankings (Higher = Better)</h2>
 
+  <!-- Legend (single row) -->
+  <div style="display:flex; justify-content:center; margin: 0 0 12px 0;">
+    <!-- If you have a separate legend image, use it here -->
+    <img src="/assets/img/radar_legend.png" alt="Tokenizer Legend"
+         style="max-width:1100px; width:100%; height:auto; border:0;" />
+  </div>
+  
+  <!-- Two radar plots side-by-side on wide screens, stacked on mobile -->
+  <div style="
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    align-items:start;
+  ">
+    <!-- Left: Music + Audio -->
+    <figure style="margin:0; text-align:center;">
+      <img src="/assets/img/music_audios.png" alt="Radar: Average rankings for Audio + Music"
+           style="width:100%; height:auto; border:1px solid #e6e6e6; border-radius:10px;" />
+      <figcaption style="font-size:14px; color:#555; margin-top:8px;">
+        <strong>Audio + Music</strong> (SS_Audio, SS_Music, ESC, MGC)
+      </figcaption>
+    </figure>
+  
+    <!-- Right: Speech -->
+    <figure style="margin:0; text-align:center;">
+      <img src="/assets/img/speech_rank.png" alt="Radar: Average rankings for Speech"
+           style="width:100%; height:auto; border:1px solid #e6e6e6; border-radius:10px;" />
+      <figcaption style="font-size:14px; color:#555; margin-top:8px;">
+       <strong>Speech</strong> (Disc-Content, Disc-Acoustic, Generative)
+      </figcaption>
+    </figure>
+  </div>

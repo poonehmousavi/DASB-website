@@ -1,0 +1,332 @@
+---
+title: 🎵  🔊 Music and Sound Tasks
+permalink: /docs/leaderboard/musicaudio
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmarking Results for Music & Audio Tasks</title>
+    <style>
+        h1, h2 {
+             margin-bottom: 20px;
+         }
+         table {
+             width: 100%;
+             border-collapse: collapse;
+             margin-top: 20px;
+         }
+         th, td {
+             padding: 8px;
+             text-align: center;
+         }
+         th {
+             font-size: 1.1em;
+             font-weight: bold;
+         }
+
+     </style>
+       <h2>📊 1st Probing Head</h2>
+       <table>
+        <thead>
+          <tr>
+            <th rowspan="2">Models/Tasks</th>
+            <th rowspan="2">#Q</th>
+            <th colspan="2">SS – Audio (SI-SDRi ↑)</th>
+            <th colspan="4">SS – Music</th>
+            <th rowspan="2">ESC (ACC ↑)</th>
+            <th rowspan="2">MGC (ACC ↑)</th>
+          </tr>
+          <tr>
+            <th>Rec</th>
+            <th>Sep</th>
+            <th>SI-SDRi ↑ (Rec)</th>
+            <th>SI-SDRi ↑ (Sep)</th>
+            <th>SAR ↑</th>
+            <th>SIR ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Continuous -->
+          <tr>
+            <td>Continuous</td>
+            <td>--</td>
+            <td>--</td>
+            <td><u><strong>15.07</strong></u></td>
+            <td>--</td>
+            <td><u><strong>13.29</strong></u></td>
+            <td><u><strong>9.56</strong></u></td>
+            <td><u><strong>11.99</strong></u></td>
+            <td><u><strong>92.91</strong></u></td>
+            <td><u><strong>87.00</strong></u></td>
+          </tr>
+      
+          <!-- Enc-SMA-24 -->
+          <tr>
+            <td rowspan="3">Enc-SMA-24</td>
+            <td>2</td>
+            <td>0.76</td>
+            <td><u>7.03 ± 0.49</u></td>
+            <td>3.36</td>
+            <td><u>1.49 ± 2.04</u></td>
+            <td><u>-2.80 ± 1.68</u></td>
+            <td><strong>5.96 ± 1.52</strong></td>
+            <td>34.83 ± 0.47</td>
+            <td><strong>70.33 ± 1.70</strong></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>3.87</td>
+            <td><strong>9.53 ± 0.33</strong></td>
+            <td>7.99</td>
+            <td><strong>1.98 ± 0.36</strong></td>
+            <td><strong>-1.95 ± 0.33</strong></td>
+            <td><u>5.26 ± 0.22</u></td>
+            <td><strong>37.00 ± 0.73</strong></td>
+            <td><u>54.67 ± 3.86</u></td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td><strong>5.76</strong></td>
+            <td>-1.73 ± 0.09</td>
+            <td><strong>11.10</strong></td>
+            <td>-11.72 ± 0.35</td>
+            <td>-15.00 ± 0.02</td>
+            <td>-0.42 ± 0.01</td>
+            <td>35.43 ± 1.45</td>
+            <td>39.67 ± 1.25</td>
+          </tr>
+      
+          <!-- DAC-SMA-24 -->
+          <tr>
+            <td rowspan="3">DAC-SMA-24</td>
+            <td>2</td>
+            <td>0.12</td>
+            <td>3.84 ± 0.48</td>
+            <td>2.37</td>
+            <td>1.01 ± 0.17</td>
+            <td>-3.59 ± 0.09</td>
+            <td>5.92 ± 0.28</td>
+            <td>31.03 ± 1.84</td>
+            <td>50.00 ± 0.82</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>3.33</td>
+            <td>5.62 ± 0.21</td>
+            <td>6.66</td>
+            <td>-11.77 ± 0.10</td>
+            <td>-10.62 ± 2.35</td>
+            <td>-5.52 ± 3.68</td>
+            <td>28.60 ± 0.79</td>
+            <td>47.67 ± 3.09</td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td><u>4.73</u></td>
+            <td>-4.92 ± 0.32</td>
+            <td><u>8.54</u></td>
+            <td>-11.32 ± 0.12</td>
+            <td>-12.70 ± 0.17</td>
+            <td>-2.05 ± 0.41</td>
+            <td><u>36.67 ± 0.92</u></td>
+            <td>50.00 ± 0.82</td>
+          </tr>
+      
+          <!-- SQ-SMA-16 -->
+          <tr>
+            <td>SQ-SMA-16</td>
+            <td>4</td>
+            <td>3.62</td>
+            <td>6.54 ± 0.22</td>
+            <td>5.53</td>
+            <td>-3.62 ± 0.87</td>
+            <td>-5.84 ± 0.86</td>
+            <td>1.42 ± 0.32</td>
+            <td>31.37 ± 1.37</td>
+            <td>42.67 ± 0.47</td>
+          </tr>
+      
+          <!-- WT-SMA-24-2 -->
+          <tr>
+            <td>WT-SMA-24-2</td>
+            <td>1</td>
+            <td>-24.05</td>
+            <td>-16.72 ± 0.08</td>
+            <td>-2.66</td>
+            <td>-4.52 ± 0.04</td>
+            <td>-8.32 ± 0.07</td>
+            <td>2.65 ± 0.11</td>
+            <td>34.50 ± 0.82</td>
+            <td>48.00 ± 1.41</td>
+          </tr>
+      
+          <!-- Mixture -->
+          <tr>
+            <td>Mixture</td>
+            <td>--</td>
+            <td>--</td>
+            <td>-16.5</td>
+            <td>--</td>
+            <td>-7.71</td>
+            <td>50.01</td>
+            <td>&minus;&infin;</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+    <h2>📊 2nd Probing Head</h2>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2">Models/Tasks</th>
+          <th rowspan="2">#Q</th>
+          <th colspan="2">SS – Audio (SI-SDRi ↑)</th>
+          <th colspan="4">SS – Music</th>
+          <th rowspan="2">ESC (ACC ↑)</th>
+          <th rowspan="2">MGC (ACC ↑)</th>
+        </tr>
+        <tr>
+          <th>Rec</th>
+          <th>Sep</th>
+          <th>SI-SDRi ↑ (Rec)</th>
+          <th>SI-SDRi ↑ (Sep)</th>
+          <th>SAR ↑</th>
+          <th>SIR ↑</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Continuous -->
+        <tr>
+          <td>Continuous</td>
+          <td>--</td>
+          <td>--</td>
+          <td><u><strong>15.07</strong></u></td>
+          <td>--</td>
+          <td><u><strong>13.29</strong></u></td>
+          <td><u><strong>9.56</strong></u></td>
+          <td><u><strong>11.99</strong></u></td>
+          <td><u><strong>94.50</strong></u></td>
+          <td><u><strong>87.00</strong></u></td>
+        </tr>
+    
+        <!-- Enc-SMA-24 -->
+        <tr>
+          <td rowspan="3">Enc-SMA-24</td>
+          <td>2</td>
+          <td>0.76</td>
+          <td><strong>5.57 ± 0.49</strong></td>
+          <td>3.36</td>
+          <td><strong>-0.03 ± 1.46</strong></td>
+          <td><strong>-3.78 ± 1.19</strong></td>
+          <td><strong>4.76 ± 1.13</strong></td>
+          <td>34.83 ± 0.47</td>
+          <td><strong>70.33 ± 1.70</strong></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>3.87</td>
+          <td>0.04 ± 0.07</td>
+          <td>7.99</td>
+          <td>-11.96 ± 0.38</td>
+          <td>-15.55 ± 0.32</td>
+          <td>-0.16 ± 0.10</td>
+          <td><strong>37.00 ± 0.73</strong></td>
+          <td><u>54.67 ± 3.86</u></td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td><strong>5.76</strong></td>
+          <td>-3.25 ± 0.11</td>
+          <td><strong>11.10</strong></td>
+          <td>-11.27 ± 0.09</td>
+          <td>-15.75 ± 0.08</td>
+          <td>-0.35 ± 0.13</td>
+          <td><u>35.43 ± 1.45</u></td>
+          <td>39.67 ± 1.25</td>
+        </tr>
+    
+        <!-- DAC-SMA-24 -->
+        <tr>
+          <td rowspan="3">DAC-SMA-24</td>
+          <td>2</td>
+          <td>0.12</td>
+          <td>2.58 ± 0.02</td>
+          <td>2.37</td>
+          <td>-4.98 ± 0.08</td>
+          <td>-9.31 ± 0.10</td>
+          <td>3.55 ± 0.03</td>
+          <td>31.03 ± 1.84</td>
+          <td>50.00 ± 0.82</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>3.33</td>
+          <td>-0.06 ± 0.53</td>
+          <td>6.66</td>
+          <td>-8.19 ± 0.76</td>
+          <td>-11.61 ± 0.75</td>
+          <td>0.84 ± 0.59</td>
+          <td>28.60 ± 0.79</td>
+          <td>47.67 ± 3.09</td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td><u>4.73</u></td>
+          <td>-7.80 ± 0.15</td>
+          <td><u>8.54</u></td>
+          <td>-11.55 ± 0.18</td>
+          <td>-11.76 ± 0.53</td>
+          <td>-3.29 ± 0.86</td>
+          <td>25.77 ± 0.82</td>
+          <td>39.67 ± 1.25</td>
+        </tr>
+    
+        <!-- SQ-SMA-16 -->
+        <tr>
+          <td>SQ-SMA-16</td>
+          <td>4</td>
+          <td>3.62</td>
+          <td><u>5.18 ± 0.25</u></td>
+          <td>5.53</td>
+          <td><u>-1.78 ± 0.08</u></td>
+          <td><u>-4.71 ± 0.19</u></td>
+          <td><u>3.77 ± 0.04</u></td>
+          <td>31.37 ± 1.37</td>
+          <td>42.67 ± 0.47</td>
+        </tr>
+    
+        <!-- WT-SMA-24-2 -->
+        <tr>
+          <td>WT-SMA-24-2</td>
+          <td>1</td>
+          <td>-24.05</td>
+          <td>-15.49 ± 0.87</td>
+          <td>-2.66</td>
+          <td>-3.68 ± 1.03</td>
+          <td>-7.49 ± 0.88</td>
+          <td>3.03 ± 0.79</td>
+          <td>34.50 ± 0.82</td>
+          <td>48.00 ± 1.41</td>
+        </tr>
+    
+        <!-- Mixture -->
+        <tr>
+          <td>Mixture</td>
+          <td>--</td>
+          <td>--</td>
+          <td>-16.5</td>
+          <td>--</td>
+          <td>-7.71</td>
+          <td>50.01</td>
+          <td>&minus;&infin;</td>
+          <td>--</td>
+          <td>--</td>
+        </tr>
+      </tbody>
+    </table>
+    
