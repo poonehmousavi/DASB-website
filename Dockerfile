@@ -1,4 +1,5 @@
-name: Build & Deploy (Docker → GitHub Pages)
+# .github/workflows/pages.yml
+name: Build & Deploy (Jekyll)
 
 on:
   push:
@@ -10,11 +11,9 @@ permissions:
   pages: write
   id-token: write
 
-# For project pages (https://user.github.io/<repo>), set baseurl:
-# env:
-#   JEKYLL_BASEURL: "/${{ github.event.repository.name }}"
-env:
-  JEKYLL_BASEURL: ""   # user/org root pages → leave empty
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -22,31 +21,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build site image (your Dockerfile)
-        uses: docker/build-push-action@v5
+      # Build with GitHub’s maintained Jekyll container (no ruby/setup-ruby needed)
+      - uses: actions/jekyll-build-pages@v1
         with:
-          context: .
-          file: ./Dockerfile
-          build-args: |
-            JEKYLL_BASEURL=${{ env.JEKYLL_BASEURL }}
-          tags: site-builder:latest
-          load: true
+          source: ./
+          destination: ./_site
+          # Optional: pass a baseurl if you’re on a Project Pages site
+          # baseurl: "/${{ github.event.repository.name }}"
 
-      - name: Extract built static site
-        shell: bash
-        run: |
-          set -e
-          id=$(docker create site-builder:latest)
-          # If your final stage copies to /usr/share/nginx/html/$JEKYLL_BASEURL
-          SRC="/usr/share/nginx/html${JEKYLL_BASEURL}"
-          mkdir -p _site
-          docker cp "$id:${SRC}/." _site
-          docker rm -v "$id"
-          # ensure GitHub Pages serves as static, no Jekyll
-          touch _site/.nojekyll
-
-      - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
@@ -56,4 +39,5 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v4
