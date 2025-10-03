@@ -1,43 +1,26 @@
-# .github/workflows/pages.yml
-name: Build & Deploy (Jekyll)
+ARG JEKYLL_BASEURL=''
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+####################################
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+FROM ruby:alpine as builder
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+RUN apk add --no-cache make build-base
+RUN gem install bundler
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+WORKDIR /jekyll
+ADD Gemfile Gemfile.lock ./
+RUN bundle install
 
-      # Build with GitHub’s maintained Jekyll container (no ruby/setup-ruby needed)
-      - uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-          # Optional: pass a baseurl if you’re on a Project Pages site
-          # baseurl: "/${{ github.event.repository.name }}"
+ADD . .
+ARG JEKYLL_BASEURL
+RUN bundle exec jekyll build --baseurl $JEKYLL_BASEURL
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
+####################################
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+FROM nginx:alpine
+
+ARG JEKYLL_BASEURL
+COPY --from=builder /jekyll/_site /usr/share/nginx/html/$JEKYLL_BASEURL
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
