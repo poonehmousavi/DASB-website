@@ -77,10 +77,9 @@ permalink: /docs/leaderboard/ranking
   <!-- Legend (single row) -->
   <div style="display:flex; justify-content:center; margin: 0 0 12px 0;">
     <!-- If you have a separate legend image, use it here -->
-    <img src="/assets/img/radar_legend.png" alt="Tokenizer Legend"
+    <img src="{{ "/assets/img/radar_legend.png"| relative_url }}"  class="img-responsive" alt="Tokenizer Legend"
          style="max-width:1100px; width:100%; height:auto; border:0;" />
   </div>
-  
   <!-- Two radar plots side-by-side on wide screens, stacked on mobile -->
   <div style="
     display:grid;
@@ -90,8 +89,8 @@ permalink: /docs/leaderboard/ranking
   ">
     <!-- Left: Music + Audio -->
     <figure style="margin:0; text-align:center;">
-      <img src="/assets/img/music_audios.png" alt="Radar: Average rankings for Audio + Music"
-           style="width:100%; height:auto; border:1px solid #e6e6e6; border-radius:10px;" />
+      <img src="{{ "/assets/img/music_audios.png"| relative_url }}" alt="Radar: Average rankings for Audio + Music"
+      class="img-responsive" style="width:100%; height:auto; border:1px solid #e6e6e6; border-radius:10px;" />
       <figcaption style="font-size:14px; color:#555; margin-top:8px;">
         <strong>Audio + Music</strong> (SS_Audio, SS_Music, ESC, MGC)
       </figcaption>
@@ -99,8 +98,8 @@ permalink: /docs/leaderboard/ranking
   
     <!-- Right: Speech -->
     <figure style="margin:0; text-align:center;">
-      <img src="/assets/img/speech_rank.png" alt="Radar: Average rankings for Speech"
-           style="width:100%; height:auto; border:1px solid #e6e6e6; border-radius:10px;" />
+        <img src="{{ "/assets/img/speech_rank.png"| relative_url }}" alt="Radar: Average rankings for Speech"
+        class="img-responsive"  style="width:100%; height:auto; border:1px solid #e6e6e6; border-radius:10px;" />
       <figcaption style="font-size:14px; color:#555; margin-top:8px;">
        <strong>Speech</strong> (Disc-Content, Disc-Acoustic, Generative)
       </figcaption>
