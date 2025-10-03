@@ -1,26 +1,59 @@
-ARG JEKYLL_BASEURL=''
+name: Build & Deploy (Docker → GitHub Pages)
 
-FROM ruby:alpine AS builder
-RUN apk add --no-cache build-base git
-RUN gem install bundler
-WORKDIR /jekyll
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
-COPY Gemfile Gemfile.lock ./
-RUN bundle config set path vendor/bundle && bundle install
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-COPY . .
-ARG JEKYLL_BASEURL
-RUN bundle exec jekyll build --baseurl "$JEKYLL_BASEURL" --destination _site
+# For project pages (https://user.github.io/<repo>), set baseurl:
+# env:
+#   JEKYLL_BASEURL: "/${{ github.event.repository.name }}"
+env:
+  JEKYLL_BASEURL: ""   # user/org root pages → leave empty
 
-# Option A: keep your subfolder copy (as you had)
-# FROM nginx:alpine
-# ARG JEKYLL_BASEURL
-# COPY --from=builder /jekyll/_site /usr/share/nginx/html/$JEKYLL_BASEURL
-# COPY nginx.conf /etc/nginx/nginx.conf
-# EXPOSE 80
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-# Option B: simpler root copy
-FROM nginx:alpine
-COPY --from=builder /jekyll/_site/ /usr/share/nginx/html/
-COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
+      - name: Build site image (your Dockerfile)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          build-args: |
+            JEKYLL_BASEURL=${{ env.JEKYLL_BASEURL }}
+          tags: site-builder:latest
+          load: true
+
+      - name: Extract built static site
+        shell: bash
+        run: |
+          set -e
+          id=$(docker create site-builder:latest)
+          # If your final stage copies to /usr/share/nginx/html/$JEKYLL_BASEURL
+          SRC="/usr/share/nginx/html${JEKYLL_BASEURL}"
+          mkdir -p _site
+          docker cp "$id:${SRC}/." _site
+          docker rm -v "$id"
+          # ensure GitHub Pages serves as static, no Jekyll
+          touch _site/.nojekyll
+
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4
